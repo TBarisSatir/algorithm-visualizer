@@ -1,16 +1,16 @@
-##Algorithm Visualizer
+## Algorithm Visualizer
 
 An interactive web application built with React to visualize classic sorting algorithms like Bubble Sort, Merge Sort, and Quick Sort.
 This project was created to provide a clear, visual understanding of how different sorting algorithms operate. Users can select an algorithm, adjust the data size and visualization speed, and watch the sorting process happen in real-time.
 
-##Features
+## Features
 
 Multiple Algorithms: Visualize and compare different sorting algorithms:
 Bubble Sort
 Merge Sort
 Quick Sort
 
-##Technologies Used
+## Technologies Used
 
 Frontend: React.js
 Styling: CSS3
