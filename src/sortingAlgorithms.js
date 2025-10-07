@@ -176,51 +176,50 @@ export const mergeSortWithSteps = (array) => {
 function partition(arr, low, high, steps) {
   let pivot = arr[high];
   let i = low - 1;
-  // Step: Announce the pivot
+
   steps.push({
     array: [...arr],
     pivotIndex: high,
     compared: [],
     swapped: [],
-    sorted: [], // Ensure all properties exist
+    sorted: [],
     message: `Choosing ${pivot} as the pivot.`,
   });
 
   for (let j = low; j < high; j++) {
-    // Step: Compare element with pivot
     steps.push({
       array: [...arr],
       pivotIndex: high,
       partitionIndex: i,
       compared: [j],
-      swapped: [], // Ensure all properties exist
-      sorted: [], // Ensure all properties exist
+      swapped: [],
+      sorted: [],
       message: `Comparing ${arr[j]} with pivot.`,
     });
 
     if (arr[j] < pivot) {
       i++;
       [arr[i], arr[j]] = [arr[j], arr[i]];
-      // Step: Announce a swap
+
       steps.push({
         array: [...arr],
         pivotIndex: high,
         partitionIndex: i,
-        compared: [], // Ensure all properties exist
+        compared: [],
         swapped: [i, j],
-        sorted: [], // Ensure all properties exist
+        sorted: [],
         message: `Swapping ${arr[i]} and ${arr[j]}.`,
       });
     }
   }
   [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
-  // Step: Place pivot in its final sorted position
+
   steps.push({
     array: [...arr],
     pivotIndex: null,
-    compared: [], // Ensure all properties exist
+    compared: [],
     swapped: [i + 1, high],
-    sorted: [arr[i + 1]], // The pivot is now technically sorted
+    sorted: [arr[i + 1]],
     message: `Placing pivot ${pivot} in its sorted position.`,
   });
   return i + 1;
