@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
 import placeholderGraph from './placeholder.png';
-import { generateRandomArray, bubbleSortWithSteps } from './sortingAlgorithms';
+import { generateRandomArray, bubbleSortWithSteps, mergeSortWithSteps, quickSortWithSteps } from './sortingAlgorithms';
 import VisualizationComponent from './components/VisualizationComponent';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -103,7 +103,12 @@ const LandingPage = () => {
       case 'bubbleSort':
         steps = bubbleSortWithSteps(newArray);
         break;
-      // add cases for mergeSortWithSteps, quickSortWithSteps here
+      case 'mergeSort':
+        steps = mergeSortWithSteps(newArray);
+        break;
+      case 'quickSort':
+        steps = quickSortWithSteps(newArray);
+        break;
 
       default:
         console.warn("Algorithm not implemented yet!");

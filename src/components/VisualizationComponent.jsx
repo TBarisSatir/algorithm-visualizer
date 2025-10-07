@@ -16,10 +16,10 @@ const VisualizationComponent = ({ steps, currentStepIndex, speed }) => {
     // the transition duration based on speed for bar animations
     const getTransitionDuration = () => {
         switch (speed) {
-            case 'slow': return '0.25s';
-            case 'normal': return '0.15s';
-            case 'fast': return '0.05s';
-            default: return '0.4s';
+            case 'slow': return '0.15s';
+            case 'normal': return '0.1s';
+            case 'fast': return '0.02s';
+            default: return '0.1s';
         }
     };
     const transitionDuration = getTransitionDuration();
