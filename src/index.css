@@ -196,7 +196,7 @@ input:checked + .slider:before {
 .selection-button:hover {
   background-color: var(--sidebar-background); 
   border-color: var(--primary-color); 
-  color: var(--primary-color); 
+  /* color: var(--primary-color); */ 
   transform: translateY(-1px); 
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
@@ -251,11 +251,6 @@ input:checked + .slider:before {
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: var(--primary-hover-color);
-  text-decoration: underline;
 }
 
 /* Visualization Area (Main Content) */
@@ -366,4 +361,66 @@ input:checked + .slider:before {
   align-items: center; 
   justify-content: space-between; 
   gap: 1rem;
+}
+
+.selection-button,
+.visualize-button {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.selection-button::before,
+.selection-button::after,
+.visualize-button::before,
+.visualize-button::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) translateX(-100%);
+  
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  
+  background: radial-gradient(circle, hsla(235, 68%, 58%, 0.7) 0%, transparent 65%);
+}
+
+body.dark-mode .selection-button::before,
+body.dark-mode .selection-button::after,
+body.dark-mode .visualize-button::before,
+body.dark-mode .visualize-button::after {
+  background: radial-gradient(circle, hsla(260, 65%, 63%, 0.527) 0%, transparent 65%);
+}
+
+@keyframes smoke-horizontal-flow {
+  0% {
+    transform: translateY(-50%) translateX(-100%) scale(1);
+    opacity: 0;
+  }
+  25%, 75% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-50%) translateX(100%) scale(2.4);
+    opacity: 0;
+  }
+}
+
+.selection-button:hover::before,
+.visualize-button:hover::before,
+.selection-button:hover::after,
+.visualize-button:hover::after {
+  animation-name: smoke-horizontal-flow;
+  animation-duration: 3s;
+  animation-timing-function: linear; 
+  animation-iteration-count: infinite;
+}
+
+.selection-button:hover::after,
+.visualize-button:hover::after {
+  animation-delay: 1.5s;
 }

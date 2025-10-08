@@ -21,7 +21,6 @@ const LandingPage = () => {
 
   const intervalRef = useRef(null);
 
-
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
@@ -143,6 +142,7 @@ const LandingPage = () => {
       <nav className="navbar">
         <div className="navbar-title">Algorithm Visualizer</div>
         <div className="navbar-right-section">
+          {/* Social Links in Navbar */}
           <div className="social-links-navbar">
             <a href="https://github.com/TBarisSatir" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
               <FontAwesomeIcon icon={faGithub} />
@@ -151,6 +151,7 @@ const LandingPage = () => {
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
           </div>
+          {/* Dark Mode Toggle */}
           <div className="dark-mode-toggle">
             <span>Dark Mode</span>
             <label className="toggle-switch">
@@ -162,6 +163,7 @@ const LandingPage = () => {
       </nav>
 
       <div className="main-content">
+        {/* Sidebar */}
         <aside className="sidebar">
           <div className="sidebar-section">
             <h2 className="section-title">Algorithm Selection</h2>
@@ -219,15 +221,17 @@ const LandingPage = () => {
               className="array-size-slider"
             />
 
-            <button className="visualize-button" onClick={handleVisualizeClick} disabled={isVisualizing}>
-              {isVisualizing ? 'Visualizing...' : 'Visualize'}
-            </button>
-            <button className="visualize-button" onClick={handleStopVisualization} disabled={!isVisualizing} style={{ marginTop: '10px', backgroundColor: '#dc3545' }}>
-              Stop
-            </button>
-            <button className="visualize-button" onClick={handleResetVisualization} style={{ marginTop: '10px', backgroundColor: '#6c757d' }}>
-              Reset
-            </button>
+            <div className="button-group" style={{ marginTop: '25px' }}>
+              <button className="visualize-button" onClick={handleVisualizeClick} disabled={isVisualizing}>
+                {isVisualizing ? 'Visualizing...' : 'Visualize'}
+              </button>
+              <button className="visualize-button" onClick={handleStopVisualization} disabled={!isVisualizing} style={{ backgroundColor: '#dc3545' }}>
+                Stop
+              </button>
+              <button className="visualize-button" onClick={handleResetVisualization} style={{ backgroundColor: '#6c757d' }}>
+                Reset
+              </button>
+            </div>
           </div>
         </aside>
 
